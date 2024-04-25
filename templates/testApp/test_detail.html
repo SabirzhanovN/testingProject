@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'content' %}
+    <div class="col-sm-9">
+        <h2>Дисциплина: {{ theme.discipline.name }}</h2>
+        <h2>Тема: {{ theme.name }}</h2>
+        <h2>Кол-во вопросов: {{ questions_cnt }}</h2>
+
+        <br>
+        {% if user.is_authenticated %}
+            <button type="button" class="btn btn-primary"><a href="{% url 'testing' theme.id %}" class="btn-start">Начать</a></button>
+        {% else %}
+            <button type="button" class="btn btn-primary"><a href="{% url 'login' %}" class="btn-start">Начать</a></button>
+        {% endif %}
+    </div>
+{% endblock %}

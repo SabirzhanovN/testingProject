@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'content' %}
+<div class="col-sm-9">
+    <br><br>
+  {% include 'blocks/alerts.html' %}
+    <div class="container">
+        <form action="{% url 'register' %}" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="first_name">Ваше имя *</label>
+            <input type="text" class="form-control" id="first_name" placeholder="Введите имя" name="first_name">
+          </div>
+          <div class="form-group">
+            <label for="last_name">Ваше фамилие *</label>
+            <input type="text" class="form-control" id="last_name" placeholder="Введите фамилию" name="last_name">
+          </div>
+          <div class="form-group">
+            <label for="phone">Номер *</label>
+            <input type="text" class="form-control" id="phone" placeholder="+996" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="email">Почта *</label>
+            <input type="email" class="form-control" id="email" placeholder="example@gmail.com" name="email">
+          </div>
+
+          <div class="form-group">
+            <label for="password1">Пароль *</label>
+            <input type="password" class="form-control" id="password1"  name="password1">
+          </div>
+          <div class="form-group">
+            <label for="password2">Подтвердите пароль *</label>
+            <input type="password" class="form-control" id="password2"  name="password2">
+          </div>
+
+
+          <button type="submit" class="btn btn-primary">Регистрация</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+<div class="col-sm-3 sidenav">
+  <h3>Онлайн тестирование</h3>
+    <hr>
+    <ul class="nav nav-list">
+        {% if user.is_authenticated %}
+            <li><a href="">{{ user.email }}</a></li>
+            <li><a href="{% url 'logout' %}">Выйти</a></li>
+        {% else %}
+            <li><a href="{% url 'login' %}">Войти</a></li>
+            <li><a href="{% url 'register' %}">Регистрация</a></li>
+        {% endif %}
+    </ul>
+    <hr>
+
+    <ul class="nav nav-list">
+        {% for i in lst_for_menu %}
+            <li><label class="tree-toggler nav-header">{{ i.discipline.name }}</label>
+                <ul class="nav nav-list tree">
+                    {% for theme in i.themes %}
+                        <li><a href="{% url 'test_detail' theme.id %}">{{ theme.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

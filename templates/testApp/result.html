@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'content' %}
+  <div class="col-sm-9">
+      <h1>Тема:  </h1>{{ history.theme }}<br>
+      <h1>Пользователь:  </h1>{{ history.user }}<br>
+      <h1>Кол-во вопросов:  </h1>{{ history.cnt_questions }}<br>
+      <h1>Кол-во правильных ответов:  </h1>{{ history.cnt_of_correct_answers }}<br>
+      <h1>Процент:  </h1>{{ history.percent_of_correct_ans }}%<br>
+
+    <a href="{% url 'home' %}">На главную</a>
+
+  </div>
+
+{% endblock %}
